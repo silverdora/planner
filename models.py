@@ -11,15 +11,14 @@ class Category:
 @dataclass
 class Task:
     name: str
+    creating_of_habit: bool
+    category: Category
     beginning_planned: datetime
-    time_to_do_planned: datetime
     finishing_planned: datetime
     beginning_real: datetime
-    time_to_do_real: datetime
     finishing_real: datetime
-    completed_button: str
+    completed: bool
 
 
-@dataclass
-class WheelOfBalance(Task):
-    
+
+
