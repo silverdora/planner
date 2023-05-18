@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from datetime import datetime
+from typing import Optional
 
 
 @dataclass
@@ -15,10 +16,15 @@ class Task:
     category: Category
     beginning_planned: datetime
     finishing_planned: datetime
-    beginning_real: datetime
-    finishing_real: datetime
+    beginning_real: Optional[datetime]
+    finishing_real: Optional[datetime]
     completed: bool
 
 
-
-
+@dataclass
+class InputTask:
+    text: str
+    create_habit: bool
+    category: int
+    start: datetime
+    end: datetime
