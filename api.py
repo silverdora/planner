@@ -1,9 +1,10 @@
 from typing import List
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Path, Query
+from typing_extensions import Annotated
 
 import applications
-from models import Category, InputTask, Task
+from models import Category, InputTask, Task, Finalization
 
 app = FastAPI()
 
@@ -26,3 +27,18 @@ def all_tasks() -> List[Task]:
 @app.post('/tasks')
 def create_a_task(params: InputTask) -> Task:
     return applications.create_task(params)
+
+
+@app.put('/tasks/{number}')
+def update_task(number: int, params: InputTask) -> Task:
+    return applications.edit_task(number, params)
+
+
+@app.post('/tasks/{number}/done')
+def done(number: int, params: Finalization) -> Task:
+    return applications.finish(number, params)
+
+
+@app.delete('/tasks/{number}/done')
+def undone(number: int) -> Task:
+    return applications.unfinish(number)

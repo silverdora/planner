@@ -11,6 +11,7 @@ class Category:
 
 @dataclass
 class Task:
+    id: int
     name: str
     creating_of_habit: bool
     category: Category
@@ -26,5 +27,11 @@ class InputTask:
     text: str
     create_habit: bool
     category: int
+    start: datetime
+    end: datetime
+
+
+@dataclass
+class Finalization:
     start: datetime
     end: datetime
