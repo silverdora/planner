@@ -16,9 +16,9 @@ def create_category(cat: str) -> Category:
 
 def find_category(cat: int) -> Category:
     for category in categories:
-        if cat == Category.id:
+        if cat == category.id:
             return category
-        raise ValueError
+    raise ValueError
 
 
 def create_task(params: InputTask) -> Task:
@@ -39,9 +39,9 @@ def create_task(params: InputTask) -> Task:
 
 def find_task(found_task: int) -> Task:
     for task in tasks:
-        if found_task == Task.id:
+        if found_task == task.id:
             return task
-        raise ValueError
+    raise ValueError
 
 
 def edit_task(num: int, params: InputTask) -> Task:
@@ -68,3 +68,4 @@ def unfinish(num: int) -> Task:
     task.finishing_real = None
     task.completed = False
     return task
+

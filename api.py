@@ -1,7 +1,6 @@
 from typing import List
 
-from fastapi import FastAPI, Path, Query
-from typing_extensions import Annotated
+from fastapi import FastAPI
 
 import applications
 from models import Category, InputTask, Task, Finalization
