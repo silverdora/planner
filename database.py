@@ -43,6 +43,7 @@ class ListCategoriesStorage(AbstractCategoriesStorage):
         return self.categories
 
     def add_new_cat(self, cat: Category) -> None:
+        cat.id = len(self.categories)
         self.categories.append(cat)
 
     def find_cat(self, id_of_cat: int) -> Category:
@@ -50,3 +51,24 @@ class ListCategoriesStorage(AbstractCategoriesStorage):
             if id_of_cat == category.id:
                 return category
         raise ValueError
+
+
+class ListTasksStorage(AbstractTasksStorage):
+    def __init__(self):
+        self.tasks: List[Task] = []
+
+    def get_tasks(self) -> List[Task]:
+        return self.tasks
+
+    def add_new_task(self, task: Task) -> None:
+        task.id = len(self.tasks)
+        self.tasks.append(task)
+
+    def find_task(self, id_of_task: int) -> Task:
+        for task in self.tasks:
+            if id_of_task == task.id:
+                return task
+        raise ValueError
+
+    def save_task(self, task: Task) -> None:
+        pass

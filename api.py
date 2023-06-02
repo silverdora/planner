@@ -10,7 +10,7 @@ app = FastAPI()
 
 @app.get('/categories')
 def all_categories() -> List[Category]:
-    return applications.categories
+    return applications.categories.get_cats()
 
 
 @app.post('/categories')
@@ -20,7 +20,7 @@ def create_category(cat: str) -> Category:
 
 @app.get('/tasks')
 def all_tasks() -> List[Task]:
-    return applications.tasks
+    return applications.tasks.get_tasks()
 
 
 @app.post('/tasks')
